@@ -18,10 +18,11 @@ def sort_books(books):
 @app.route('/book_titles', methods=['GET'])
 def book_titles():
 
-    
+    sorted_books = sort_books(all_books)  # Sort alphabetically by title
+
     return render_template(
         'book_titles.html',
-        all_books=all_books,
+        all_books=sorted_books,
     )
 
 @app.route('/book_details/<book_title>')

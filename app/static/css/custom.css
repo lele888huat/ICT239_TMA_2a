@@ -145,3 +145,15 @@ body {
     overflow: hidden;
 }
 
+/* ================================
+  Default Book Image Styling
+  ================================ */
+.book-card img,
+.book-card .no-image-placeholder {
+    width: 100px;   /* fixed width */
+    height: 150px;  /* fixed height */
+    object-fit: contain; /* keeps aspect ratio without stretching */
+    margin: 0 auto;
+    display: block;
+    border-radius: 0.25rem;
+}
