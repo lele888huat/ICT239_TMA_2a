@@ -157,3 +157,41 @@ body {
     display: block;
     border-radius: 0.25rem;
 }
+
+/* Small / Medium (≥576px & ≤991.98px) - Book Titles Page Responsive */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .book-card .row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: flex-start;
+    }
+
+    /* Image Column: Fix width/max-width to 120px */
+    .book-card .row > div:first-child {
+        flex: 0 0 120px !important;
+        max-width: 120px !important;
+        padding: 15px 5px 15px 15px !important;
+        text-align: center;
+    }
+
+    /* Text Column (Fluid width) */
+    .book-card .row > div:last-child {
+        flex: 1 1 auto !important;
+        min-width: 0; 
+        padding: 15px 0 15px 10px !important;
+        text-align: left;
+        overflow-wrap: break-word;
+    }
+
+    /* Image Tag: Explicitly set fixed height/width */
+    .book-card img,
+    .book-card .no-image-placeholder {
+        width: 100px !important; /* FIXED WIDTH */
+        max-width: 100px !important; /* FIXED WIDTH */
+        height: 150px !important; /* FIXED HEIGHT */
+        max-height: 150px;
+        margin: 0 auto !important;
+        object-fit: contain !important;
+        border-radius: 0.25rem;
+    }
+}
