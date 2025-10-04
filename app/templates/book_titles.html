@@ -19,6 +19,10 @@ Book Titles
 
             <form action="{{ url_for('book_titles') }}" method="GET" class="form-inline align-items-center">
 
+                <!-- WRAPPING THE FILTER ELEMENTS IN A RESPONSIVE FLEX CONTAINER -->
+                <!-- d-flex: always flex (needed for mobile) -->
+                <!-- flex-column: stack vertically on mobile (default) -->
+                <!-- flex-sm-row: stack horizontally from 'sm' breakpoint (>= 576px) -->
                 <div class="d-flex flex-column flex-sm-row align-items-sm-center">
                     <div class="form-group d-flex align-items-center me-sm-3 mb-1 mb-sm-0">
                         <label for="category-select" class="me-2 text-nowrap">Category </label>
