@@ -234,3 +234,86 @@ body {
     }
 }
 
+/* ================================
+  Responsive: Hamburger Menu & Sidebar (<768px)
+  ================================ */
+@media (max-width: 768px) {
+    /* Hamburger button fixed at top-right */
+    #sidebar-label {
+        position: fixed;
+        top: 10px; 
+        right: 10px; 
+        z-index: 1002; 
+        transition: right 0.3s; 
+    }
+
+    /* Content fills full width when sidebar is hidden */
+    #content {
+        margin-left: 0; 
+    }
+
+    /* Hide desktop navbar initially */
+    .navbar {
+        display: none !important; 
+    }
+
+    /* Sidebar collapses */
+    #sidebar {
+        min-width: 100vw;
+        max-width: none;
+        min-height: auto;
+        height: 0;
+        margin-left: 0; 
+        top: 0;
+        left: 0;
+        overflow: hidden; 
+        z-index: 1001; 
+        transition: height 0.3s ease; 
+    }
+
+    /* Adjust main content padding */
+    .main-content-area {
+        padding-top: 50px;
+    }
+
+    /* Hide page heading initially */
+    #content .navbar h4 {
+        display: none;
+    }
+
+    /* Sidebar expanded when checkbox is checked */
+    #sidebar-toggle:checked ~ .wrapper #sidebar {
+        height: 160px; 
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3); 
+        padding-bottom: 10px; 
+    }
+
+    /* Move hamburger slightly if needed */
+    #sidebar-toggle:checked ~ #sidebar-label {
+        right: 10px; 
+    }
+
+    /* Show navbar below expanded sidebar */
+    #sidebar-toggle:checked ~ .wrapper #content .navbar {
+        display: flex !important; 
+        left: 0; 
+        width: 100vw;
+        top: 160px; 
+        transition: top 0.3s ease;
+    }
+
+    /* Content margin reset */
+    #sidebar-toggle:checked ~ .wrapper #content {
+        margin-left: 0; 
+    }
+
+    /* Show heading when sidebar expanded */
+    #sidebar-toggle:checked ~ .wrapper #content .navbar h4 {
+        display: block; 
+    }
+
+    /* Push main content below navbar when sidebar expanded */
+    #sidebar-toggle:checked ~ .wrapper #content .main-content-area {
+        padding-top: 215px; 
+    }
+}
