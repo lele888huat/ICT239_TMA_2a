@@ -39,9 +39,12 @@
         </nav>
         
         <div id="content">
+            {# Fixed Top Bar for Page Heading #}
             <nav class="navbar navbar-expand-lg custom-header-bg fixed-top shadow-sm">
                 <div class="container-fluid d-flex justify-content-start align-items-center">
                     
+                    {# The hamburger label has been MOVED OUT of this nav bar #}
+                    {# 3. Page Heading: Toggled via CSS #}
                     <h4 class="mb-0">{% block page_heading %}{% endblock %}</h4>
                 </div>
             </nav>
