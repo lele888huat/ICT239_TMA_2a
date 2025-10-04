@@ -43,10 +43,22 @@ def book_titles():
         current_category=current_category # <-- Fixes the dropdown reset issue
     )
 
+
+# --- Book Details Page ---
 @app.route('/book_details/<book_title>')
 def book_details(book_title):
-    # For now, just a placeholder
-    return f"Details for {book_title}"
+
+    the_book = get_book_details(book_title)
+    
+    if not the_book:
+        return "Book not found", 404 
+    
+    return render_template(
+        'book_details.html',
+        book=the_book
+    )
+
+
 
 
 if __name__ == '__main__':
