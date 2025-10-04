@@ -1,0 +1,147 @@
+/* ================================
+  Layout / Global Styling
+  ================================ */
+
+/* Ensures no horizontal scrolling due to fixed elements */
+html, body {
+    width: 100%;
+    overflow-x: hidden; 
+}
+
+/* Overall background color */
+body {
+    background-color: #f0f0f0; 
+}
+
+/* Wrapper for Flexbox layout */
+.wrapper { 
+    display: flex; 
+    align-items: stretch; 
+}
+
+/* Custom CSS for header background and width adjustment */
+.custom-header-bg {
+    background-color: #a7d9b7 !important; 
+}
+
+/* Header Alignment Fix: Counteracts the left padding on #content */
+#content .navbar h4 {
+    margin-top: 0; 
+    margin-bottom: 0;
+}
+
+/* ================================
+  Sidebar Styling (Desktop: MD and Up)
+  ================================ */
+#sidebar {
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s;
+    background: url("https://library.suss.edu.sg/wp-content/uploads/2023/11/Study-Space_High-table-2-cropped-300x200.png") no-repeat center center;
+    background-size: cover; 
+    background-position: left;
+    display: flex; 
+    flex-direction: column;
+}
+
+#sidebar::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); 
+    z-index: -1; 
+}
+
+#sidebar .sidebar-header {
+    padding: 20px 10px 0; 
+    text-align: center;
+    color: #fff;
+    font-weight: normal; 
+    margin-bottom: 30px; 
+}
+
+#sidebar .sidebar-header::after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid white;
+    margin: 15px 10px 0; 
+}
+
+#sidebar ul li a {
+    padding: 10px 20px; 
+    font-size: 1.1em;
+    display: block;
+    color: #fff; 
+    text-decoration: none;
+    transition: all 0.3s;
+    text-align: center;
+    font-weight: normal; 
+}
+
+#sidebar ul li a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ================================
+  Content Styling (Desktop: MD and Up)
+  ================================ */
+#content {
+    margin-left: 200px; 
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    padding: 0 20px 20px 20px; 
+}
+
+.navbar {
+    position: fixed;
+    width: calc(100vw - 200px); 
+    left: 200px; 
+    top: 0;
+    z-index: 999; 
+    padding-top: 5px !important; 
+    margin-top: 0 !important; 
+    border-radius: 0px; 
+}
+
+.main-content-area {
+    padding-top: 55px; 
+    transition: padding-top 0.3s ease; 
+}
+
+/* ================================
+  Buttons and Text Colors
+  ================================ */
+.btn-primary, .btn-info {
+    color: #fff;
+    background-color: #28a745; 
+    border-color: #28a745;
+}
+.btn-primary:hover, .btn-info:hover {
+    background-color: #1e7e34; 
+    border-color: #1c7430;
+}
+
+.book-count-text,
+.form-inline .form-group label,
+.book-title-header a,
+.author-name {
+    color: #008080 !important;
+}
+
+/* ================================
+  Book Card Base Styling
+  ================================ */
+.book-card {
+    background-color: white;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
