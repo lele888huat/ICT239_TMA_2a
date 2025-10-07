@@ -1,38 +1,37 @@
 /* ================================
-  Layout / Global Styling
-  ================================ */
+   Layout / Global Styling
+   ================================ */
 
-/* Ensures no horizontal scrolling due to fixed elements */
+/* Prevent horizontal scrolling */
 html, body {
     width: 100%;
     overflow-x: hidden; 
 }
 
-/* Overall background color */
+/* Background */
 body {
     background-color: #f0f0f0; 
 }
 
-/* Wrapper for Flexbox layout */
+/* Flex wrapper */
 .wrapper { 
     display: flex; 
     align-items: stretch; 
 }
 
-/* Custom CSS for header background and width adjustment */
+/* Header background */
 .custom-header-bg {
     background-color: #a7d9b7 !important; 
 }
 
-/* Header Alignment Fix: Counteracts the left padding on #content */
+/* Header text alignment */
 #content .navbar h4 {
-    margin-top: 0; 
-    margin-bottom: 0;
+    margin: 0;
 }
 
 /* ================================
-  Sidebar Styling (Desktop: MD and Up)
-  ================================ */
+   Sidebar Styling (Desktop ≥768px)
+   ================================ */
 #sidebar {
     min-width: 200px;
     max-width: 200px;
@@ -42,9 +41,8 @@ body {
     left: 0;
     z-index: 1000;
     transition: all 0.3s;
-    background: url("https://library.suss.edu.sg/wp-content/uploads/2023/11/Study-Space_High-table-2-cropped-300x200.png") no-repeat center center;
+    background: url("https://library.suss.edu.sg/wp-content/uploads/2023/11/Study-Space_High-table-2-cropped-300x200.png") no-repeat left center;
     background-size: cover; 
-    background-position: left;
     display: flex; 
     flex-direction: column;
 }
@@ -74,29 +72,25 @@ body {
 }
 
 #sidebar ul li a {
-    padding: 10px 20px; 
-    font-size: 1.1em;
     display: block;
+    padding: 10px 20px;
+    padding-left: 20px;
+    font-size: 1.1em;
     color: #fff; 
     text-decoration: none;
-    transition: all 0.3s;
     text-align: left;
-    justify-content: flex-start; /* move icon + text to left */
+    justify-content: flex-start;
     font-weight: normal; 
-    padding-left: 20px; /* control left distance */
-
+    transition: all 0.3s;
 }
-
-
 
 #sidebar ul li a:hover {
     background: rgba(255,255,255,0.2);
 }
 
 /* ================================
-  Content Styling (Desktop: MD and Up)
-  ================================ */
-/* Default (Desktop) positioning */
+   Content Styling (Desktop ≥768px)
+   ================================ */
 #content {
     margin-left: 200px; 
     width: 100%;
@@ -107,14 +101,13 @@ body {
 
 .navbar {
     position: fixed;
-    /* desktop width */
     width: calc(100vw - 200px); 
     left: 200px; 
     top: 0;
     z-index: 999; 
     padding-top: 5px !important; 
     margin-top: 0 !important; 
-    border-radius: 0px; 
+    border-radius: 0; 
 }
 
 .main-content-area {
@@ -123,13 +116,14 @@ body {
 }
 
 /* ================================
-  Buttons and Text Colors
-  ================================ */
+   Buttons and Text Colors
+   ================================ */
 .btn-primary, .btn-info {
     color: #fff;
     background-color: #28a745; 
     border-color: #28a745;
 }
+
 .btn-primary:hover, .btn-info:hover {
     background-color: #1e7e34; 
     border-color: #1c7430;
@@ -143,8 +137,8 @@ body {
 }
 
 /* ================================
-  Book Card Base Styling
-  ================================ */
+   Book Card Base Styling
+   ================================ */
 .book-card {
     background-color: white;
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05);
@@ -152,9 +146,6 @@ body {
     overflow: hidden;
 }
 
-/* ================================
-  Default Book Image Styling
-  ================================ */
 .book-card img,
 .book-card .no-image-placeholder {
     width: 100px; 
@@ -165,23 +156,21 @@ body {
     border-radius: 0.25rem;
 }
 
-/* Small / Medium (≥576px & ≤991.98px) - Book Titles Page Responsive */
+/* ================================
+   Book Cards Responsive
+   ================================ */
 @media (min-width: 576px) and (max-width: 991.98px) {
     .book-card .row {
         display: flex !important;
         flex-wrap: nowrap !important;
         align-items: flex-start;
     }
-
-    /* Image Column: Fix width/max-width to 120px */
     .book-card .row > div:first-child {
         flex: 0 0 120px !important;
         max-width: 120px !important;
         padding: 15px 5px 15px 15px !important;
         text-align: center;
     }
-
-    /* Text Column (Fluid width) */
     .book-card .row > div:last-child {
         flex: 1 1 auto !important;
         min-width: 0; 
@@ -189,73 +178,52 @@ body {
         text-align: left;
         overflow-wrap: break-word;
     }
-
-    /* Image Tag: Explicitly set fixed height/width */
     .book-card img,
     .book-card .no-image-placeholder {
         width: 100px !important;
-        max-width: 100px !important;
         height: 150px !important; 
-        max-height: 150px;
         margin: 0 auto !important;
         object-fit: contain !important;
         border-radius: 0.25rem;
     }
 }
 
-/* Extra Small (<576px) - Book Titles Page Responsive */
 @media (max-width: 575px) {
     .book-card .row {
         flex-direction: column !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin: 0 !important;
     }
-
-    /* Image column full width, center aligned */
-    .book-card .row > div:first-child {
-        padding: 15px !important;
-        padding-bottom: 0 !important;
+    .book-card .row > div:first-child,
+    .book-card .row > div:last-child {
         width: 100% !important;
-        text-align: center;
         flex: 0 0 100% !important;
+        padding: 15px !important;
     }
-
-    /* Book cover styling */
+    .book-card .row > div:first-child {
+        padding-bottom: 0 !important;
+        text-align: center;
+    }
     .book-card img,
     .book-card .no-image-placeholder {
         width: 100% !important;
         height: auto !important;
-        margin: 0 auto !important;
         min-height: 150px;
         object-fit: contain !important;
         border-radius: 0.35rem !important;
+        margin: 0 auto !important;
         padding: 0 !important;
-    }
-
-    /* Text column full width below image */
-    .book-card .row > div:last-child {
-        padding: 15px !important;
-        width: 100% !important;
-        flex: 0 0 100% !important;
-        text-align: left;
     }
 }
 
 /* ================================
-  Responsive: Hamburger Menu & Sidebar (<768px)
-  ================================ */
+   Responsive Hamburger Menu (<768px)
+   ================================ */
 @media (max-width: 768px) {
-    /* ------------------------------------
-       HAMBURGER ICON STYLING (The Fix)
-       ------------------------------------ */
     #sidebar-label {
         position: fixed;
         top: 10px; 
         right: 10px; 
         z-index: 1002; 
-        transition: right 0.3s; 
-        
-        /* New Styling to create the three-bar look */
         width: 40px;
         height: 35px;
         background-color: white; 
@@ -266,34 +234,27 @@ body {
         justify-content: space-around;
         padding: 5px;
         cursor: pointer;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        transition: right 0.3s; 
     }
-
-    /* Styles for the individual bars */
     #sidebar-label span {
         display: block;
-        height: 3px; 
         width: 100%;
-        background-color: #6c757d; /* Grey color for the bars */
+        height: 3px;
+        background-color: #6c757d;
         border-radius: 2px;
         transition: all 0.3s;
     }
-    /* ------------------------------------ */
 
-
-    /* Content fills full width when sidebar is hidden */
     #content {
         margin-left: 0; 
-        padding-left: 15px; 
-        padding-right: 15px; 
+        padding: 0 15px;
     }
 
-    /* Hide desktop navbar initially */
     .navbar {
         display: none !important; 
     }
 
-    /* Sidebar collapses vertically on mobile */
     #sidebar {
         min-width: 100vw;
         max-width: none;
@@ -307,45 +268,37 @@ body {
         transition: height 0.3s ease; 
     }
 
-    /* Adjust main content padding - this is the base offset for the mobile view */
     .main-content-area {
         padding-top: 50px;
     }
 
-    /* Hide page heading initially (it will appear in the second fixed bar) */
     #content .navbar h4 {
         display: none;
     }
 
-    /* Sidebar expanded when checkbox is checked */
     #sidebar-toggle:checked ~ .wrapper #sidebar {
         height: 160px; 
         box-shadow: 0 4px 6px rgba(0,0,0,0.3); 
         padding-bottom: 10px; 
     }
 
-    /* Show navbar below expanded sidebar */
     #sidebar-toggle:checked ~ .wrapper #content .navbar {
         display: flex !important; 
         left: 0; 
         width: 100vw;
-        top: 160px; /* Position below the expanded sidebar */
+        top: 160px; 
         transition: top 0.3s ease;
     }
 
-    /* Content margin reset (already 0, but good for clarity) */
     #sidebar-toggle:checked ~ .wrapper #content {
         margin-left: 0; 
     }
 
-    /* Show heading when sidebar expanded */
     #sidebar-toggle:checked ~ .wrapper #content .navbar h4 {
         display: block; 
     }
 
-    /* Push main content below the fixed navbar AND the expanded sidebar */
     #sidebar-toggle:checked ~ .wrapper #content .main-content-area {
-        /* 160px (sidebar height) + 55px (navbar height) = 215px */
         padding-top: 215px; 
     }
 }
