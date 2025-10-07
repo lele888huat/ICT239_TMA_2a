@@ -80,9 +80,14 @@ body {
     color: #fff; 
     text-decoration: none;
     transition: all 0.3s;
-    text-align: center;
+    text-align: left;
+    justify-content: flex-start; /* move icon + text to left */
     font-weight: normal; 
+    padding-left: 20px; /* control left distance */
+
 }
+
+
 
 #sidebar ul li a:hover {
     background: rgba(255,255,255,0.2);
